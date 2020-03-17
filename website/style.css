@@ -1,5 +1,6 @@
 body{
     background: #fffff8;
+    background-image: linear-gradient(90deg, #020024 0%, #090979 35%, #00d4ff 100%);
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
@@ -8,8 +9,7 @@ body{
     grid-auto-rows: minmax(150px, auto);
     /* grid-template-columns:  */
     height:100vh;
-    background: #f23557;
-    color: #f0d43a;
+    color: #fffff8;
     justify-content: center;
     grid-gap: 1em;
     font-size: 20px;
@@ -17,7 +17,7 @@ body{
 }
 
 .holder{
-
+    border-radius: 25px;
 }
 
 .entry{
@@ -25,6 +25,7 @@ body{
 }
 
 #entryHolder{
+    border-radius: 25px;
 
 }
 
@@ -58,7 +59,7 @@ input{
     height: 60px;
     width: 320px;
     background:#22b2da;
-    color: #f0d43a;
+    color: #fffff8;
     font-size: 20px;
     font-family: 'Oswald', sans-serif;
     border: none;
@@ -68,19 +69,26 @@ button{
     width: 400px;
     height: 100px;
     background: #3b4a6b;
-    color: #f0d43a;
+    color: #fffff8;
     font-size: 26px;
     font-family: 'Oswald', sans-serif;
-    border: none;
+    border-radius: 25px;
+    border-color: #090979;
     box-shadow: 2px 4px 5px #444;
 }
+
+button:hover {
+    background: #00d4ff;
+}
+
+
 h1{
     font-size: 36px;
 }
 
 textarea{
     background:#22b2da;
-    color: #f0d43a;
+    color: #fffff8;
     font-size: 20px;
     font-family: 'Oswald', sans-serif;
 }
@@ -93,19 +101,19 @@ button:focus {
 }
 /* Style for Placeholder Text*/
 ::placeholder { /* Firefox, Chrome, Opera */ 
-    color: #f0d43a; 
+    color: #fffff8;
     font-family: 'Oswald', sans-serif;
 
 } 
   
 :-ms-input-placeholder { /* Internet Explorer 10-11 */ 
-    color: #f0d43a; 
+    color: #fffff8;
     font-family: 'Oswald', sans-serif;
 
 } 
   
 ::-ms-input-placeholder { /* Microsoft Edge */ 
-    color: #f0d43a; 
+    color: #fffff8;
     font-family: 'Oswald', sans-serif;
 
 } 
