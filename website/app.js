@@ -1,13 +1,12 @@
 /*Global Variables*/
 const baseURL = 'http://api.openweathermap.org/data/2.5/weather?zip=';
 const apiKey = '&APPID=419ade04141ebb7f1f6deeb95aba3892';
-//const cityZipCode = '94040';
 const countryCode = ',us'
 const feelings = document.getElementById('feelings').nodeValue;
 
 //Create a new date instance dynamically with JS
 let d = new Date();
-let newDate = d.getMonth()+'.'+d.getDate()+'.'+d.getFullYear();
+let newDate = d.getMonth()+1+'.'+d.getDate()+'.'+d.getFullYear();
 
 
 document.getElementById('generate').addEventListener('click', performAction);
@@ -16,6 +15,23 @@ document.getElementById('generate').addEventListener('click', performAction);
 function performAction(e){
     const cityZipCode = document.getElementById('zip').value;
     getData(baseURL+cityZipCode+countryCode+apiKey)
+    .then(
+        function(weather) {
+            return postData('/addForecast', {temperature: weather.main.temp, date: newDate, user_response: 'good'})
+        }
+    )
+    .then(
+        function(post_response) {
+            return getData('/get')
+        }
+    )
+    .then(
+        function(get_response) {
+            document.getElementById('date').innerHTML = get_response.date;
+            document.getElementById('temp').innerHTML = get_response.temperature;
+            document.getElementById('content').innerHTML = get_response.user_response;
+        }
+    )
 }
 
 
@@ -52,17 +68,4 @@ const getData = async (url = '')=>{
 };
 
 
-const updateUI = async () => {
-    const request = await fetch('all');
-    try{
-        const allData = await request.json();
-        document.getElementById('date').innerHTML = allData[0].date;
-        document.getElementById('temp').innerHTML = allData[0].temp;
-        document.getElementById('content').innerHTML = allData[0].content;
-    } catch(error){
-        console.log("error", error);
-    }
-};
-
-
-postData('/addForecast', {temperature: '85F', date: '3/16/2020', user_response: 'good'})
+//postData('/addForecast', {temperature: '85F', date: '3/16/2020', user_response: 'good'})
