@@ -56,6 +56,7 @@ const postData = async (url = '', data = {})=>{
     }
 };
 
+
 const getData = async (url = '')=>{
     const response = await fetch(url);
 
