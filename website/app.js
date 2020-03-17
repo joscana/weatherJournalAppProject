@@ -15,21 +15,7 @@ document.getElementById('generate').addEventListener('click', performAction);
 
 function performAction(e){
     const cityZipCode = document.getElementById('zip').value;
-    // getForecast(baseURL, cityZipCode, countryCode, apiKey)
-    getData('/get')
-}
-
-
-const getForecast = async (baseURL, cityZipCode, countryCode, apiKey) =>{
-    const res = await fetch(baseURL+cityZipCode+countryCode+apiKey)
-    try {
-        const data = await res.json();
-        console.log(data)
-        return data;
-    }
-    catch(error) {
-        console.log("error", error);
-    }
+    getData(baseURL+cityZipCode+countryCode+apiKey)
 }
 
 
@@ -53,7 +39,7 @@ const postData = async (url = '', data = {})=>{
     }
 };
 
-const getData = async (url = '', data = {})=>{
+const getData = async (url = '')=>{
     const response = await fetch(url);
 
     try {
@@ -64,17 +50,6 @@ const getData = async (url = '', data = {})=>{
         console.log("error", error);
     }
 };
-
-
-const retrieveData = async (url=baseURL+cityZipCode+countryCode+apiKey) =>{
-    const request = await fetch(url);
-    try {
-        const allData = await request.json()
-    }
-    catch(error) {
-        console.log("error", error);
-    }
-}
 
 
 const updateUI = async () => {
