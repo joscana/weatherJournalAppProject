@@ -2,7 +2,6 @@
 const baseURL = 'http://api.openweathermap.org/data/2.5/weather?zip=';
 const apiKey = '&APPID=419ade04141ebb7f1f6deeb95aba3892';
 const countryCode = ',us'
-const feelings = document.getElementById('feelings').nodeValue;
 
 //Create a new date instance dynamically with JS
 let d = new Date();
@@ -17,7 +16,8 @@ function performAction(e){
     getData(baseURL+cityZipCode+countryCode+apiKey)
     .then(
         function(weather) {
-            return postData('/addForecast', {temperature: weather.main.temp, date: newDate, user_response: 'good'})
+            const feelings = document.getElementById('feelings').value;
+            return postData('/addForecast', {temperature: weather.main.temp, date: newDate, user_response: feelings})
         }
     )
     .then(
@@ -66,6 +66,3 @@ const getData = async (url = '')=>{
         console.log("error", error);
     }
 };
-
-
-//postData('/addForecast', {temperature: '85F', date: '3/16/2020', user_response: 'good'})
