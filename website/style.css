@@ -29,23 +29,12 @@ body{
 
 }
 
-#date{
-
+#feelings{
+    border-radius: 25px;
 }
 
-#temp{
-
-}
-
-#content{
-
-}
-
-.headline {
-
-}
-.title{
-
+#zip{
+    border-radius: 25px;
 }
 
 /*  Basic Styling To Override Default For Basic HTML Elements */

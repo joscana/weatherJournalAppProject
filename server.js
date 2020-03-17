@@ -36,14 +36,6 @@ function sendData (request, response) {
 };
 
 
-//POST ROUTE
-// app.post('/', postReceived);
-
-// function postReceived(request, response) {
-//     
-// };
-
-
 app.post('/addForecast', addForecast);
 
 function addForecast (request, response){
